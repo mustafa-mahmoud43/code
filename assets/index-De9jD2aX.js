@@ -13622,9 +13622,7 @@ var fn = He.registerPlugin(qp) || He;
 fn.core.Tween;
 function K_({ onStart: t }) {
   const e = ae.useRef(null),
-    [n] = ae.useState(
-      typeof window < "u" ? new Audio("/code/bg-music.mp3") : null
-    ),
+    [n] = ae.useState(typeof window < "u" ? new Audio("/bg-music.mp3") : null),
     [r, i] = ae.useState(!1);
   ae.useEffect(() => {
     const s = e.current;
@@ -13677,23 +13675,14 @@ function K_({ onStart: t }) {
           onClick: l,
           className:
             "px-8 py-3 rounded-full bg-gradient-to-r from-rose-500 to-rose-400 text-white shadow-lg text-base md:text-lg font-semibold hover:from-rose-600 hover:to-rose-500 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 transform",
-          children: "بدا الرحلة",
+          children: "لنكتشف معاً",
         }),
       ],
     }),
   });
 }
-const G_ = [
-    "في كل سطر كود، أضع جزءاً من قلبي",
-    "وفي كل تعليق، أترك رسالة حب",
-    "هذا المشروع ليس مجرد كود",
-    "بل هو رحلة من المشاعر والأحلام",
-    "أتمنى أن تكوني شريكة رحلتي",
-    "في الحياة كما في الكود",
-    "نكتب معاً قصة جميلة",
-  ],
-  Z_ = "هل تسمحين أن أكون رفيق الدرب؟ هل تقبلين أن أخطبكِ؟ 💍";
-function q_({ onNext: t }) {
+const G_ = "هل تسمحين أن أكون رفيق الدرب؟ هل تقبلين أن أخطبكِ؟ 💍";
+function Z_({ onNext: t }) {
   const e = ae.useRef(null),
     n = () => {
       if (e.current) {
@@ -13780,24 +13769,33 @@ function q_({ onNext: t }) {
       P.jsxs("div", {
         className: "relative z-10 flex flex-col items-center",
         children: [
-          P.jsx("h2", {
-            className:
-              "text-2xl md:text-3xl font-semibold mb-8 text-gray-200 text-center",
-            children: "قصائد الحب",
-          }),
           P.jsx("div", {
             className: "w-full space-y-6 mb-8",
-            children: G_.map((r, i) =>
-              P.jsx(
-                "div",
-                {
-                  className:
-                    "text-lg md:text-xl leading-relaxed text-gray-200 text-center px-4",
-                  children: r,
-                },
-                i
-              )
-            ),
+            children: P.jsx("p", {
+              style: {
+                whiteSpace: "pre-line",
+                lineHeight: "1.8",
+                textAlign: "center",
+              },
+              children: `
+            هناك لحظات معينة في الحياة تترك أثرًا بسيطًا… لكنه لا يشبه أي شيء آخر. 
+            ولأسباب لا أعرف كيف أشرحها بدقة، كانت رؤيتي لكِ إحدى هذه اللحظات.
+             رغم قِصر المرات التي رأيتك فيها، إلا أنكِ لم تغادري عقلي يومًا.
+              وفي وسط الناس، وفي عزّ انشغالي وضجيج الحياة من حولي، أجد نفسي أفكر فيكِ. 
+              وكأن شيئًا هادئًا وجميلًا يلفتني إليكِ كل مرة.
+               لا أخفي عليكِ أنني ارتحتُ لشخصيتك وهدوئك، وشعرت أنكِ إنسانة مختلفة…
+                شخص يستحق أن يُقترب منه باحترام، وأن تُمنح العلاقة معه فرصة لتكبر خطوة بخطوة. 
+                ولهذا كتبت لكِ اليوم، لأقول لكِ كما قال الشاعر: 
+                وَقَفَ الْقَلْبُ بِيَ بَيْنَ يَدَيْكِ 
+                وَاعْتَرَفَ بِكُلِّ ما فِي ضَمِيرِي 
+                أَنْتِ النَّدَى وَالْهُدَى وَالْحَنَانُ 
+                وَشُعَاعُ نَجْمَةٍ فِيْ قَلْبِظْلْمِي 
+                لستُ هنا لأعِدَكِ بالجنان، بل لأعدكِ بأنني سأبذل كل ما في وسعي، بصدق وإخلاص، لأن تكون هذه الدنيا التي نسيرها معاً جنّةً لكِ.
+                 سأعمل لأكون سندكِ، وأذنكِ التي تسمع، وقلبكِ الذي يفهم. 
+                 هدفي هو رؤية البسمة لا تفارق محيّاكِ، والسعادة رفيقة دربكِ.
+            
+            `,
+            }),
           }),
           P.jsx("button", {
             onClick: n,
@@ -13810,13 +13808,13 @@ function q_({ onNext: t }) {
     ],
   });
 }
-function J_({ onFinalPage: t }) {
+function q_({ onFinalPage: t }) {
   const e = () => {
     t && t(!0);
   };
   return P.jsx("div", {
     className: "relative w-full",
-    children: P.jsx(q_, { onNext: e }),
+    children: P.jsx(Z_, { onNext: e }),
   });
 }
 class ji {
@@ -13824,7 +13822,7 @@ class ji {
     (this.status = e), (this.text = n);
   }
 }
-const b_ = () => {
+const J_ = () => {
     if (!(typeof localStorage > "u"))
       return {
         get: (t) => Promise.resolve(localStorage.getItem(t)),
@@ -13835,7 +13833,7 @@ const b_ = () => {
   ye = {
     origin: "https://api.emailjs.com",
     blockHeadless: !1,
-    storageProvider: b_(),
+    storageProvider: J_(),
   },
   da = (t) =>
     t
@@ -13845,7 +13843,7 @@ const b_ = () => {
         ? t
         : {}
       : {},
-  eg = (t, e = "https://api.emailjs.com") => {
+  b_ = (t, e = "https://api.emailjs.com") => {
     if (!t) return;
     const n = da(t);
     (ye.publicKey = n.publicKey),
@@ -13874,49 +13872,49 @@ const b_ = () => {
     if (!n || typeof n != "string")
       throw "The template ID is required. Visit https://dashboard.emailjs.com/admin/templates";
   },
-  tg = (t) => {
+  eg = (t) => {
     if (t && t.toString() !== "[object Object]")
       throw "The template params have to be the object. Visit https://www.emailjs.com/docs/sdk/send/";
   },
   eh = (t) => t.webdriver || !t.languages || t.languages.length === 0,
   th = () => new ji(451, "Unavailable For Headless Browser"),
-  ng = (t, e) => {
+  tg = (t, e) => {
     if (!Array.isArray(t)) throw "The BlockList list has to be an array";
     if (typeof e != "string")
       throw "The BlockList watchVariable has to be a string";
   },
-  rg = (t) => {
+  ng = (t) => {
     var e;
     return !((e = t.list) != null && e.length) || !t.watchVariable;
   },
-  ig = (t, e) => (t instanceof FormData ? t.get(e) : t[e]),
+  rg = (t, e) => (t instanceof FormData ? t.get(e) : t[e]),
   nh = (t, e) => {
-    if (rg(t)) return !1;
-    ng(t.list, t.watchVariable);
-    const n = ig(e, t.watchVariable);
+    if (ng(t)) return !1;
+    tg(t.list, t.watchVariable);
+    const n = rg(e, t.watchVariable);
     return typeof n != "string" ? !1 : t.list.includes(n);
   },
   rh = () => new ji(403, "Forbidden"),
-  lg = (t, e) => {
+  ig = (t, e) => {
     if (typeof t != "number" || t < 0)
       throw "The LimitRate throttle has to be a positive number";
     if (e && typeof e != "string")
       throw "The LimitRate ID has to be a non-empty string";
   },
-  sg = async (t, e, n) => {
+  lg = async (t, e, n) => {
     const r = Number((await n.get(t)) || 0);
     return e - Date.now() + r;
   },
   ih = async (t, e, n) => {
     if (!e.throttle || !n) return !1;
-    lg(e.throttle, e.id);
+    ig(e.throttle, e.id);
     const r = e.id || t;
-    return (await sg(r, e.throttle, n)) > 0
+    return (await lg(r, e.throttle, n)) > 0
       ? !0
       : (await n.set(r, Date.now().toString()), !1);
   },
   lh = () => new ji(429, "Too Many Requests"),
-  og = async (t, e, n, r) => {
+  sg = async (t, e, n, r) => {
     const i = da(r),
       l = i.publicKey || ye.publicKey,
       s = i.blockHeadless || ye.blockHeadless,
@@ -13926,7 +13924,7 @@ const b_ = () => {
     return s && eh(navigator)
       ? Promise.reject(th())
       : (bp(l, t, e),
-        tg(n),
+        eg(n),
         n && nh(u, n)
           ? Promise.reject(rh())
           : (await ih(location.pathname, a, o))
@@ -13943,12 +13941,12 @@ const b_ = () => {
               { "Content-type": "application/json" }
             ));
   },
-  ug = (t) => {
+  og = (t) => {
     if (!t || t.nodeName !== "FORM")
       throw "The 3rd parameter is expected to be the HTML form element or the style selector of the form";
   },
-  ag = (t) => (typeof t == "string" ? document.querySelector(t) : t),
-  fg = async (t, e, n, r) => {
+  ug = (t) => (typeof t == "string" ? document.querySelector(t) : t),
+  ag = async (t, e, n, r) => {
     const i = da(r),
       l = i.publicKey || ye.publicKey,
       s = i.blockHeadless || ye.blockHeadless,
@@ -13956,8 +13954,8 @@ const b_ = () => {
       u = { ...ye.blockList, ...i.blockList },
       a = { ...ye.limitRate, ...i.limitRate };
     if (s && eh(navigator)) return Promise.reject(th());
-    const f = ag(n);
-    bp(l, t, e), ug(f);
+    const f = ug(n);
+    bp(l, t, e), og(f);
     const c = new FormData(f);
     return nh(u, c)
       ? Promise.reject(rh())
@@ -13969,11 +13967,11 @@ const b_ = () => {
         c.append("user_id", l),
         Jp("/api/v1.0/email/send-form", c));
   },
-  cg = { init: eg, send: og, sendForm: fg, EmailJSResponseStatus: ji },
-  dg = "service_42anume",
-  pg = "template_m7vxcd5",
-  hg = "n8ehA-7nO_i99CcV3",
-  mg = async (t, e, n) => {
+  fg = { init: b_, send: sg, sendForm: ag, EmailJSResponseStatus: ji },
+  cg = void 0,
+  dg = void 0,
+  pg = void 0,
+  hg = async (t, e, n) => {
     try {
       const r =
           {
@@ -13988,7 +13986,7 @@ const b_ = () => {
           message: r,
           date: n,
         },
-        l = await cg.send(dg, pg, i, hg);
+        l = await fg.send(cg, dg, i, pg);
       return (
         console.log("Email sent successfully:", l.status, l.text),
         { success: !0, response: l }
@@ -13999,7 +13997,7 @@ const b_ = () => {
       );
     }
   };
-function _g({ onResponse: t }) {
+function mg({ onResponse: t }) {
   const e = ae.useRef(null),
     [n, r] = ae.useState(null);
   ae.useEffect(() => {
@@ -14022,7 +14020,7 @@ function _g({ onResponse: t }) {
               hour: "2-digit",
               minute: "2-digit",
             });
-          await mg(o, s, u), t && t(s);
+          await hg(o, s, u), t && t(s);
         } catch (o) {
           console.error("Error handling response:", o), t && t(s);
         } finally {
@@ -14061,7 +14059,7 @@ function _g({ onResponse: t }) {
         P.jsx("div", {
           className:
             "text-2xl md:text-3xl leading-relaxed font-semibold text-rose-400 mb-6",
-          children: Z_,
+          children: G_,
         }),
         P.jsxs("div", {
           className: "mt-6 flex flex-col items-center gap-4",
@@ -14122,7 +14120,7 @@ function _g({ onResponse: t }) {
     }),
   });
 }
-function gg({ responseType: t }) {
+function _g({ responseType: t }) {
   const e = ae.useRef(null);
   ae.useEffect(() => {
     e.current &&
@@ -14358,7 +14356,7 @@ function gg({ responseType: t }) {
     ],
   });
 }
-function vg() {
+function gg() {
   const [t, e] = ae.useState(!1),
     [n, r] = ae.useState(null),
     [i, l] = ae.useState(!1),
@@ -14393,9 +14391,9 @@ function vg() {
       className: "w-full max-w-3xl",
       children: t
         ? u
-          ? P.jsx(gg, { responseType: f })
+          ? P.jsx(_g, { responseType: f })
           : s
-          ? P.jsx(_g, { onResponse: g })
+          ? P.jsx(mg, { onResponse: g })
           : P.jsxs(P.Fragment, {
               children: [
                 P.jsx("div", {
@@ -14406,7 +14404,7 @@ function vg() {
                     children: "رسالة خاصة",
                   }),
                 }),
-                P.jsx(J_, { onFinalPage: o }),
+                P.jsx(q_, { onFinalPage: o }),
               ],
             })
         : P.jsx(K_, { onStart: p }),
@@ -14414,5 +14412,5 @@ function vg() {
   });
 }
 Jd(document.getElementById("root")).render(
-  P.jsx(Sh.StrictMode, { children: P.jsx(vg, {}) })
+  P.jsx(Sh.StrictMode, { children: P.jsx(gg, {}) })
 );
