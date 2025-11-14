@@ -55,7 +55,7 @@ export default function TerminalIntro({ onStart }){
           onClick={start} 
           className="px-8 py-3 rounded-full bg-gradient-to-r from-rose-500 to-rose-400 text-white shadow-lg text-base md:text-lg font-semibold hover:from-rose-600 hover:to-rose-500 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 transform"
         >
-         بدا الرحلة
+          لنكتشف معاً
         </button>
       </div>
     </div>
